@@ -1,0 +1,7 @@
+__pycache__/
+migrations/
+polls
+Photos
+IMS_backend/settings.py
+IMS_backend/__pycache__/settings.cpython-38.pyc
+IMS_backend/__pycache__/urls.cpython-38.pyc
