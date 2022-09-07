@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'polls',
-    'InventoryApp'
+    'InventoryApp',
+    'pyodbc'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -85,23 +86,48 @@ import pymysql
 import os
 from pathlib import Path
 
-BASE_DIR=Path(__file__).resolve(strict=True).parent.parent
-MEDIA_URL='/Photos/'
-MEDIA_ROOT=os.path.join(BASE_DIR,"Photos")
+
 
 pymysql.install_as_MySQLdb()
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'factorydb',
+#         'USER': 'root',
+#         'PASSWORD':'SqlrootPasswordd@123',
+#         'HOST':'localhost',
+#         'PORT': '3306' 
+
+#     }
+# }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'mssql',
+#         'PORT': '1433',
+#         'SERVER':'assessmentserverget.database.windows.net',
+#         'NAME': 'praveen db',
+#         'USER': 'dbadmin',
+#         'PASSWORD':'db@admin12345',
+#         'OPTIONS': {
+#                 'driver': 'ODBC Driver 18 for SQL Server',
+#             },
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'factorydb',
-        'USER': 'root',
-        'PASSWORD':'SqlrootPasswordd@123',
-        'HOST':'localhost',
-        'PORT': '3306' 
-
-    }
+         'ENGINE': 'mssql',
+         'NAME': 'praveen db',
+        'HOST':'assessmentserverget.database.windows.net',
+        'USER': 'dbadmin',
+        'PORT': '1433',
+        'PASSWORD':'db@admin12345',
+         'Trusted_Connection': 'no', 
+         'OPTIONS': { 
+            'Server':'assessmentserverget.database.windows.net',
+             'driver': 'ODBC Driver 18 for SQL Server', 
+             'extra_params': "Encrypt=yes;TrustServerCertificate=no;Server=assessmentserverget.database.windows.net" }
+     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -131,13 +157,16 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+BASE_DIR=Path(__file__).resolve(strict=True).parent.parent
+MEDIA_URL='Photos/'
+MEDIA_ROOT=os.path.join(BASE_DIR,"Photos")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
