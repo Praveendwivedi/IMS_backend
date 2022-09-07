@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'PraveenBackend'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_66BEF55704264B4BB9461E7C90CD4487 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_07802C14FD5242E295720832DE18EA89 }}
