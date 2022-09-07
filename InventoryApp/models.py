@@ -11,8 +11,8 @@ class Products(models.Model):
     ProductId = models.AutoField(primary_key=True)
     ProductName=models.CharField(max_length=50)
     Quantity = models.IntegerField() 
-    Image = models.ImageField(null=True)
-    Description=models.TextField(null=True)
+    Image = models.ImageField(upload_to="products",blank=True,null=True)
+    Description=models.TextField(null=True,blank=True)
     
     # class Meta:
     #     abstract = True
